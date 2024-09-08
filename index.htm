@@ -1,0 +1,54 @@
+<!Doctype html>
+<html>
+<head>
+<title>Sprite Code</title>
+</head>
+<body>
+<div id="mysprite"> 
+<!-- 800x800 -->
+</div>
+<style>
+#mysprite {
+    background: url(Sprite_image.jpg);
+    width: 43px;
+    height: 52px;
+	background-position: 86px 104px;
+}
+</style>
+<script>
+	sprite = document.querySelector("#mysprite");
+	visdiv_wd = sprite.offsetWidth;
+	visdiv_ht = sprite.offsetHeight;
+	totwd = visdiv_wd*6;
+	totht = visdiv_ht*5;
+	setInterval(function() {
+		//background_X = ;
+		var demo = document.getElementById('mysprite'),
+		_tmp = window.getComputedStyle(demo,null).backgroundPosition.trim().split(/\s+/),
+		positions = {
+			'left' : _tmp[0],
+			'top' : _tmp[1],
+			'numbers' : {
+				'left' : parseFloat(_tmp[0]),
+				'top' : parseFloat(_tmp[1])
+			},
+			'units' : {
+				'left' : _tmp[0].replace(/\d+/,''),
+				'top' : _tmp[1].replace(/\d+/,'')
+			}
+		};
+		//console.log(positions, positions.left, positions.top, positions.numbers.left, positions.numbers.top, positions.units.left, positions.units.top);
+		lftval = positions.left.replace("px","");
+		console.log(lftval);
+		if(lftval < totwd) {
+			lftval = lftval+visdiv_wd;
+		//	demo.
+		}
+	},1500);
+
+
+//console.log(positions, positions.left, positions.top, positions.numbers.left, positions.numbers.top, positions.units.left, positions.units.top);
+
+</script>
+</body>
+</html>
